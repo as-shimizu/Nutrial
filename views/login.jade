@@ -1,10 +1,16 @@
 extends layout
 
 block content
-  h1= title
-  form(method='POST', action='/login')
+  form(method='POST', action='/')
     table
       tr
         td Login ID
         td
-          input(type='text', name='login', placeholder='loginid')
+          input(type='text', name='loginName', placeholder='loginName')
+      tr
+        td Password
+        td
+          input(type='password', name='password', placeholder='password')
+      tr
+        td(colspan="2")
+          input(type='submit', name='login', value='Login')

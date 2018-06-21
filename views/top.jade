@@ -1,0 +1,9 @@
+extends layout
+
+block content
+  p= message
+  p ログイン名: 
+    span= loginName
+
+  form(method='POST', action='/logout')
+    input(type='submit', name='logout', value='ログアウト')

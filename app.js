@@ -4,8 +4,15 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
+var pg = require('pg');
+var session = require('express-session');
+var pgSession = require('connect-pg-simple')(session);
+var dbConnect = require('./conf/dbConfig');
+
 var loginRouter = require('./routes/login');
 var usersRouter = require('./routes/users');
+var topRouter = require('./routes/top');
+var logoutRouter = require('./routes/logout');
 
 var app = express();
 
@@ -19,8 +26,26 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+// session
+app.use(session({
+    store : new pgSession({
+        pg : pg,
+        conString : dbConnect.dbConnectStr,
+        ttl : 1800,
+        pruneSessionInterval : 60
+    }),
+    secret : 'secret',
+    resave : false,
+    saveUninitialized : false,
+    cookie : {
+        maxAge : 60 * 60 * 1000
+    }
+}));
+
 app.use('/', loginRouter);
 app.use('/users', usersRouter);
+app.use('/top', topRouter);
+app.use('/logout', logoutRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
