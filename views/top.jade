@@ -1,9 +1,23 @@
 extends layout
 
+block script
+  link(rel='stylesheet', href='/FullCalendar/fullcalendar-3.9.0/fullcalendar.css')
+  script(src='/FullCalendar/fullcalendar-3.9.0/lib/moment.min.js')
+  script(src='/FullCalendar/fullcalendar-3.9.0/fullcalendar.js')
+  script(src='/javascripts/top.js')
+  script(type="text/javascript").
+    window.onload = function() {
+      init();
+    }
+
 block content
   p= message
   p ログイン名: 
     span= loginName
 
-  form(method='POST', action='/logout')
-    input(type='submit', name='logout', value='ログアウト')
+  div(id='calendar')
+
+  div
+    form(method='POST', action='/logout')
+      input(type='submit', name='logout', value='ログアウト')
+

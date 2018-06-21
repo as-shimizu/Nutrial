@@ -2,7 +2,9 @@ doctype html
 html
   head
     title= title
+    script(src='FullCalendar/fullcalendar-3.9.0/lib/jquery.min.js')
     link(rel='stylesheet', href='/stylesheets/style.css')
+    block script
   body
     h1= title
     block content
