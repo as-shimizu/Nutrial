@@ -3,7 +3,7 @@ var router = express.Router();
 
 /* Session */
 var loginCheck = function( req, res, next ){
-    if( req.session ) {
+    if( req.session.loginName ) {
         next();
      } else {
         res.render('login');
