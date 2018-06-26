@@ -15,9 +15,14 @@ block content
   p ログイン名: 
     span= loginName
 
+  form(method='POST', action='/top')
+    div
+      input(type='submit', name='createDay', value='入力する')
+      input(type='submit', name='dummy', value='文字を出力する')
   div(id='calendar')
 
   div
     form(method='POST', action='/logout')
-      input(type='submit', name='logout', value='ログアウト')
+      p 
+        input(type='submit', name='logout', value='ログアウト')
 

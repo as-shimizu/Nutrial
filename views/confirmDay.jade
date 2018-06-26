@@ -1,0 +1,19 @@
+extends layout
+
+block content
+
+  form(method='POST', action='confirmDay')
+    div
+      table
+        tr
+          td Name
+          td= name
+        tr 
+          td cal
+          td= cal 
+        tr
+          td(culspan='2')
+            input(type='submit', name='create', value='登録')
+    div
+      p
+        input(type='submit', name='back', value='戻る')

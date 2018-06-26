@@ -13,6 +13,8 @@ var loginRouter = require('./routes/login');
 var usersRouter = require('./routes/users');
 var topRouter = require('./routes/top');
 var logoutRouter = require('./routes/logout');
+var createDayRouter = require('./routes/createDay');
+var confirmDayRouter = require('./routes/confirmDay');
 
 var app = express();
 
@@ -46,6 +48,8 @@ app.use('/', loginRouter);
 app.use('/users', usersRouter);
 app.use('/top', topRouter);
 app.use('/logout', logoutRouter);
+app.use('/createDay', createDayRouter);
+app.use('/confirmDay', confirmDayRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

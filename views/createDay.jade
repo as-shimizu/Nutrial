@@ -1,0 +1,26 @@
+extends layout
+
+block content
+  script(src='/javascripts/createDay.js')
+  script(type="text/javascript").
+    window.onload = function() {
+      console.log('#{name}', '#{cal}');
+      init(#{name}, #{cal});
+    }
+  form(method='POST', action='createDay')
+    div
+      table
+        tr
+          td Name
+          td
+            input(type='textbox', name='name', id='name')
+        tr 
+          td cal
+          td 
+            input(type='textbox', name='cal', id='cal')
+        tr
+          td(culspan='2')
+            input(type='submit', name='create', value='登録')
+    div
+      p
+        input(type='submit', name='back', value='戻る')
