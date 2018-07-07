@@ -1,4 +1,4 @@
-extends layout
+extends common/menu
 
 block script
   link(rel='stylesheet', href='/FullCalendar/fullcalendar-3.9.0/fullcalendar.css')
@@ -12,17 +12,11 @@ block script
 
 block content
   p= message
-  p ログイン名: 
+  p ログイン名:
     span= loginName
 
-  form(method='POST', action='/top')
-    div
-      input(type='submit', name='createDay', value='入力する')
-      input(type='submit', name='dummy', value='文字を出力する')
   div(id='calendar')
-
   div
     form(method='POST', action='/logout')
-      p 
+      p
         input(type='submit', name='logout', value='ログアウト')
-

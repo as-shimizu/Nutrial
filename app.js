@@ -10,9 +10,10 @@ var pgSession = require('connect-pg-simple')(session);
 var dbConnect = require('./conf/dbConfig');
 
 var loginRouter = require('./routes/login');
-var usersRouter = require('./routes/users');
-var topRouter = require('./routes/top');
 var logoutRouter = require('./routes/logout');
+var topRouter = require('./routes/top');
+var menuRouter = require('./routes/menu');
+
 var createDayRouter = require('./routes/createDay');
 var confirmDayRouter = require('./routes/confirmDay');
 
@@ -45,9 +46,10 @@ app.use(session({
 }));
 
 app.use('/', loginRouter);
-app.use('/users', usersRouter);
-app.use('/top', topRouter);
 app.use('/logout', logoutRouter);
+app.use('/top', topRouter);
+app.use('/menu', menuRouter);
+
 app.use('/createDay', createDayRouter);
 app.use('/confirmDay', confirmDayRouter);
 

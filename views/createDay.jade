@@ -1,4 +1,4 @@
-extends layout
+extends common/menu
 
 block content
   script(src='/javascripts/createDay.js')
@@ -14,9 +14,9 @@ block content
           td Name
           td
             input(type='textbox', name='name', id='name')
-        tr 
+        tr
           td cal
-          td 
+          td
             input(type='textbox', name='cal', id='cal')
         tr
           td(culspan='2')

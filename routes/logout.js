@@ -19,7 +19,7 @@ router.post('/', loginCheck, function(req, res, next) {
       res.render('top', { title: 'top', message: 'Failed to Logout' });
     } else {
       console.log('success logout');
-      res.redirect('/');
+      res.render('/', {message: "ログアウトしました。"});
     }
   });
 });
