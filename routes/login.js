@@ -1,5 +1,7 @@
 var express = require('express');
 var router = express.Router();
+var loginUser = require('../models/loginUser')
+var crypto = require('crypto');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -8,19 +10,22 @@ router.get('/', function(req, res, next) {
 
 router.post('/', function(req, res, next) {
   let loginName = req.body.loginName;
-  let password = req.body.password;
+  let password = md5hex(req.body.password);
 
-  if(loginName=="as-shimizu" && password=="as-shimizu") {
-    console.log("loginName: " + loginName);
-    console.log("password: " + password);
-    
-    // session
-    req.session.loginName = loginName;
-    req.session.password = password;
-    res.redirect('/top');
-  } else {
-    res.render('login')
-  }
+  loginUser.updateLogin(loginName, password, function(error,status) {
+    if(error) {
+      res.render('login', {message: "ログインに失敗しました。"})
+    } else {
+      console.log("loginName: " + loginName);
+      // session
+      req.session.loginName = loginName;
+      res.redirect('/top');
+    }
+  });
 });
-module.exports = router;
 
+function md5hex(str) {
+  const md5 = crypto.createHash('md5')
+  return md5.update(str, 'binary').digest('hex')
+}
+module.exports = router;

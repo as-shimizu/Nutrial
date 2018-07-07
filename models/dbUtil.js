@@ -5,6 +5,8 @@ var async = require('async');
 module.exports = {
   /**
   * DBアクセス
+  * select文は1行ずつまわす
+  * insert, update, delete文は複数可能
   **/
   sqlExec : function(sql, parameters, callback) {
     var client = new pg.Client(dbConnect.dbConnectStr);
@@ -15,11 +17,12 @@ module.exports = {
       }
       client.query('BEGIN', function (err, result) {
         async.eachSeries(parameters, function(parameter, next) {
-          client.query({text : sql}, function (error, results) {
+          client.query({text : sql}, parameter, function (error, results) {
             if (error) {
               rollback(client);
               return callback(error, parameter);
             }
+            console.log()
             if(result.command == 'SELECT') return callback(error, result.rows);
             next();
           });
@@ -34,11 +37,11 @@ module.exports = {
           return callback(error, null);
         });
       });
-    });   
+    });
   }
 }
 
-function rollback(client) {  
+function rollback(client) {
   client.query('ROLLBACK', function() {
     client.end();
   });
