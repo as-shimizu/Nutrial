@@ -1,7 +1,8 @@
 extends common/menu
 
 block script
-  link(rel='stylesheet', href='/FullCalendar/fullcalendar-3.9.0/fullcalendar.css')
+  link(rel='stylesheet',href='/FullCalendar/fullcalendar-3.9.0/fullcalendar.css')
+  link(rel='stylesheet',href='/stylesheets/calendar.css')
   script(src='/FullCalendar/fullcalendar-3.9.0/lib/moment.min.js')
   script(src='/FullCalendar/fullcalendar-3.9.0/fullcalendar.js')
   script(src='/javascripts/top.js')
@@ -11,12 +12,26 @@ block script
     }
 
 block content
-  p= message
-  p ログイン名:
-    span= loginName
-
   div(id='calendar')
-  div
+
+  div(id='dailyView')
+    div(id='dailyMealList')
+      table(id='dailyMealTable')
+        tr
+          th 朝ごはん
+          th 昼ごはん
+          th 夜ご飯
+          th その他
+        tr
+          td(id='breakfast') aa
+          td(id='lunch') ii
+          td(id='dinner') uu
+          td(id='other') ee
+      form(method='GET', action='/createDay')
+        input(type='submit', name='logout', class='button' value='入力')
+
+  div(id='graphView')
+  div(id='logout')
     form(method='POST', action='/logout')
       p
-        input(type='submit', name='logout', value='ログアウト')
+        input(type='submit', name='logout', class='button' value='ログアウト')

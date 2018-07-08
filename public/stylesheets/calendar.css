@@ -1,0 +1,57 @@
+.fc-prev-button {
+  border: 0px;
+  width: 25px;
+  background: url(../image/prev.png) left top no-repeat;
+  background-size: 25px;
+  text-indent:100%;
+  white-space:nowrap;
+  overflow:hidden;
+}
+
+.fc-next-button {
+  border: 0px;
+  width: 25px;
+  background: url(../image/next.png) left top no-repeat;
+  background-size: 25px;
+  text-indent:100%;
+  white-space:nowrap;
+  overflow:hidden;
+}
+
+.fc-body {
+  background-color: #fff;
+}
+.fc-head {
+  background-color: #ffff99;
+}
+.fc-sat {
+  background-color: #ddeeff;
+}
+.fc-sun {
+  background-color: #ffddf0;
+}
+.fc-head .fc-sat {
+  background-color: #99ccff;
+  !important
+}
+.fc-head .fc-sun {
+  background-color: #ff99b2;
+  !important
+}
+
+.fc-month-button {
+  display: none;
+}
+.fc-agendaDay-button {
+  display: none;
+}
+
+.fc-agendaDay-view .fc-head {
+  display: none;
+}
+.fc-agendaDay-view .fc-body {
+  display: none;
+}
+#dailyView {
+  display: none;
+}

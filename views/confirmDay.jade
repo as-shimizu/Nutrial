@@ -1,4 +1,4 @@
-extends layout
+extends common/menu
 
 block content
 
@@ -8,9 +8,9 @@ block content
         tr
           td Name
           td= name
-        tr 
+        tr
           td cal
-          td= cal 
+          td= cal
         tr
           td(culspan='2')
             input(type='submit', name='create', value='登録')

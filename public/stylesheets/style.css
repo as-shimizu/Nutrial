@@ -1,8 +1,31 @@
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-color: #ffddbb
 }
 
 a {
   color: #00B7FF;
+}
+
+.button {
+  position: relative;
+  display: inline-block;
+  font-weight: bold;
+  padding: 0.5em 1em;
+  text-decoration: none;
+  border-left: solid 4px #ff3366;
+  border-right: solid 4px #ff3366;
+  color: #ff3366;
+  background: #ffcccc;
+  transition: .4s;
+}
+
+.button:hover {
+  background: #ff3366;
+  color: #FFF;
+}
+
+#dailyMealTable {
+  border: 2px;
 }
