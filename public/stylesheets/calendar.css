@@ -1,3 +1,27 @@
+.fc-center {
+  margin-left: 150px;
+}
+.fc-button {
+  position: relative;
+  display: inline-block;
+  font-weight: bold;
+  width: 80px;
+  margin: 0;
+  padding: 10px;
+  text-decoration: none;
+  border-left: solid 4px #e67168;
+  border-right: solid 4px #e67168;
+  color: #e67168;
+  background: #ffcccc;
+  transition: .4s;
+  text-align: center;
+  line-height: 1;
+  font-size: 16px;
+}
+.fc-button:hover {
+  background: #e67168;
+  color: #FFF;
+}
 .fc-prev-button {
   border: 0px;
   width: 25px;
@@ -7,7 +31,6 @@
   white-space:nowrap;
   overflow:hidden;
 }
-
 .fc-next-button {
   border: 0px;
   width: 25px;
@@ -45,13 +68,42 @@
 .fc-agendaDay-button {
   display: none;
 }
-
-.fc-agendaDay-view .fc-head {
-  display: none;
-}
-.fc-agendaDay-view .fc-body {
+.fc-agendaDay-view {
   display: none;
 }
 #dailyView {
   display: none;
+}
+
+/* 月/日のラジオボタン */
+.fc-right input {
+	display: none;
+}
+.fc-right .sMonth, .fc-right .sDay{
+	display: block;
+	float: left;
+	cursor: pointer;
+	width: 60px;
+	margin: 0;
+	padding: 10px;
+	background: #bdc3c7;
+	color: #869198;
+	font-size: 16px;
+	text-align: center;
+	line-height: 1;
+	transition: .2s;
+}
+.fc-right label:first-of-type{
+	border-radius: 3px 0 0 3px;
+}
+.fc-right label:last-of-type{
+	border-radius: 0 3px 3px 0;
+}
+.fc-right input[type="radio"]:checked + .sMonth {
+	background-color: #e67168;
+	color: #fff;
+}
+.fc-right input[type="radio"]:checked + .sDay {
+	background-color: #e67168;
+	color: #fff;
 }

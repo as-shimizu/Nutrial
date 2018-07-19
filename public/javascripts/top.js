@@ -1,7 +1,8 @@
 function init() {
+  var ymd;
   $('#calendar').fullCalendar({
     header: {
-      left: 'today',
+      left: '',
       center: 'prev title next',
       right:'month agendaDay'
     },
@@ -53,10 +54,12 @@ function init() {
 
   var labelMonth = document.createElement("label");
   var labelDay = document.createElement("label");
-  labelMonth.for = "switchMonth";
-  labelDay.for = "switchDay";
+  labelMonth.setAttribute("for","switchMonth");
+  labelDay.setAttribute("for","switchDay");
   labelMonth.innerText = "月";
   labelDay.innerText = "日";
+  labelMonth.setAttribute("class","sMonth");
+  labelDay.setAttribute("class", "sDay");
 
   var fcRight = document.getElementsByClassName("fc-right");
   [].forEach.call(fcRight,function(x) {
@@ -76,18 +79,23 @@ function init() {
   $('input[name="switchMonthDay"]:radio').change( function() {
     var radioVal = $(this).val();
     var dailyView = document.getElementById('dailyView');
+    var date = document.getElementsByClassName('fc-day-header','fc-widget-header');
+    [].forEach.call(date,function(x) {
+      console.log(x.dataset.value);
+    });
     if(radioVal == 'month') {
       var buttonMonth = document.getElementsByClassName('fc-month-button');
       [].forEach.call(buttonMonth,function(x) {
         x.click();
       });
-      dailyView.style.display="none";
+      dailyView.style.display = "none";
     } else if(radioVal == 'day') {
       var buttonDay = document.getElementsByClassName('fc-agendaDay-button');
       [].forEach.call(buttonDay,function(x) {
         x.click();
       });
-      dailyView.style.display="block";
+      dailyView.style.display = "block";
+
     }
   })
 }

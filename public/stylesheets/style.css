@@ -3,29 +3,44 @@ body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
   background-color: #ffddbb
 }
-
 a {
   color: #00B7FF;
 }
-
 .button {
   position: relative;
   display: inline-block;
   font-weight: bold;
   padding: 0.5em 1em;
   text-decoration: none;
-  border-left: solid 4px #ff3366;
-  border-right: solid 4px #ff3366;
-  color: #ff3366;
+  border-left: solid 4px #e67168;
+  border-right: solid 4px #e67168;
+  color: #e67168;
   background: #ffcccc;
   transition: .4s;
 }
-
 .button:hover {
-  background: #ff3366;
+  background: #e67168;
   color: #FFF;
 }
-
 #dailyMealTable {
-  border: 2px;
+width: 100%;
+border-collapse: collapse;
+}
+#dailyMealTable th{
+width: 25%;
+padding: 6px;
+text-align: left;
+vertical-align: top;
+color: #333;
+background-color: #ffff99;
+border: 1px solid #b9b9b9;
+text-align: center;
+}
+#dailyMealTable td{
+padding: 6px;
+background-color: #fff;
+border: 1px solid #b9b9b9;
+}
+#addMeal {
+  text-align: center;
 }
